@@ -1,0 +1,39 @@
+{
+    "metadata": {
+        "model_architecture": {
+            "0": {
+                "layer_type": "Linear",
+                "in_features": 10,
+                "out_features": 10,
+                "out_channels": null,
+                "kernel_size": null,
+                "trainable_params": 110
+            },
+            "1": {
+                "layer_type": "ReLU",
+                "in_features": null,
+                "out_features": null,
+                "out_channels": null,
+                "kernel_size": null,
+                "trainable_params": 0
+            },
+            "2": {
+                "layer_type": "Linear",
+                "in_features": 10,
+                "out_features": 1,
+                "out_channels": null,
+                "kernel_size": null,
+                "trainable_params": 11
+            },
+            "3": {
+                "layer_type": "Sigmoid",
+                "in_features": null,
+                "out_features": null,
+                "out_channels": null,
+                "kernel_size": null,
+                "trainable_params": 0
+            }
+        }
+    },
+    "metrics": {}
+}
