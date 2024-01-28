@@ -1,5 +1,11 @@
 # TorchVersionist
-![TorchVersionist Logo](assets/logo.png)
+
+<p align="center">
+  <img src="assets/logo.png" width="400" height="400" alt="TorchVersionist Logo">
+</p>
+
+
+
 TorchVersionist is a powerful Python library designed for PyTorch users to effortlessly manage model versions. It automates the tracking of model architectures, hyperparameters, and performance metrics, facilitating a smoother development and analysis process.
 
 ## Key Features
