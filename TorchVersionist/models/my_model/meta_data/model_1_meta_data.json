@@ -1,5 +1,5 @@
 {
-    "metadata": {
+    "meta_data": {
         "model_architecture": {
             "0": {
                 "layer_type": "Linear",
@@ -35,5 +35,34 @@
             }
         }
     },
-    "metrics": {}
+    "metrics": {
+        "accuracy": 0.1
+    },
+    "training_metrics": [
+        {
+            "epoch": 0,
+            "metric_name": "acc",
+            "value": 0
+        },
+        {
+            "epoch": 1,
+            "metric_name": "acc",
+            "value": 0.1
+        },
+        {
+            "epoch": 2,
+            "metric_name": "acc",
+            "value": 0.2
+        },
+        {
+            "epoch": 3,
+            "metric_name": "acc",
+            "value": 0.3
+        },
+        {
+            "epoch": 4,
+            "metric_name": "acc",
+            "value": 0.4
+        }
+    ]
 }

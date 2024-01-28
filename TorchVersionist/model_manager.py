@@ -1,6 +1,10 @@
 import os
 import json
 import torch
+from training_metric import TrainingMetric
+from training_metric_tracker import TrainingMetricsTracker
+
+
 
 class ModelManager:
     def __init__(self, model, model_name, base_dir="models"):
@@ -17,6 +21,8 @@ class ModelManager:
 
         self.metadata = self.extract_model_info(model)
         self.metrics = {}
+        self.training_metrics_tracker = TrainingMetricsTracker()  # Initialize the metrics tracker
+
     
     def extract_model_info(self, model):
         model_info = {}
@@ -79,15 +85,16 @@ class ModelManager:
         
         # Define the file paths for the model and metadata
         model_path = os.path.join(self.model_dir, f"model_{version}.pt")
-        meta_path = os.path.join(self.metadata_dir, f"model_{version}_metadata.json")
+        meta_path = os.path.join(self.metadata_dir, f"model_{version}_meta_data.json")
         
         # Save the PyTorch model state dictionary
         torch.save(self.model.state_dict(), model_path)
         
         # Prepare the data to be saved in the meta file
         save_data = {
-            'metadata': self.metadata,
-            'metrics': self.metrics
+            'meta_data': self.metadata,
+            'metrics': self.metrics,
+            'training_metrics': json.loads(self.training_metrics_tracker.to_json()) if self.training_metrics_tracker else None
         }
         
         # Save metadata in a _metadata.json file in JSON format
@@ -110,3 +117,21 @@ class ModelManager:
             self.metrics = data['metrics']
         
         return self.model, self.metadata, self.metrics
+    
+    def update_metrics(self, new_metrics):
+        """
+        Update the metrics dictionary with new metrics.
+        :param new_metrics: A dictionary containing new metrics to be added or updated.
+        """
+        # Update the self.metrics dictionary with the new metrics
+        self.metrics.update(new_metrics)
+
+    def add_training_metric(self, epoch, metric_name, value):
+        """
+        Add a training metric to the metrics tracker.
+        :param epoch: The training epoch or iteration.
+        :param metric_name: The name of the metric.
+        :param value: The value of the metric.
+        """
+        training_metric = TrainingMetric(epoch, metric_name, value)
+        self.training_metrics_tracker.add_training_metric(training_metric)
