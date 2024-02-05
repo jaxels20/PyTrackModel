@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="PyTrackModel",
+    name="torchversionist",
     version="0.0.1",
     author="Jeppe Berg Axelsen",
     author_email="xfm82gtn@gmail.com",
