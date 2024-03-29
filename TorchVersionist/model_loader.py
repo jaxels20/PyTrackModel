@@ -2,7 +2,7 @@ import os
 import json
 
 from training_metric import TrainingMetric
-from training_metric_tracker import TrainingMetricsTracker
+from training_metrics_tracker import TrainingMetricsTracker
 
 class ModelLoader:
     def __init__(self, model_name, base_dir="models"):

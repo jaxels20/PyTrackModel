@@ -11,7 +11,7 @@ setuptools.setup(
     description="A package for managing PyTorch model versions, metadata, and metrics.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/jaxels20/ModelKeeper",
+    url="https://github.com/jaxels20/TorchVersionist",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
